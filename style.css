@@ -1,0 +1,685 @@
+/* ========================================
+   AVELLANEDA LIONKINGS
+   ESTILOS GENERALES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    width: 100%;
+}
+
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+header {
+    width: 100%;
+    background-color: #780000;
+    color: white;
+    padding: 1.5% 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.2);
+}
+
+.logo h1 {
+    font-size: 1.7rem;
+    letter-spacing: 0.05rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #dddddd;
+}
+
+header button {
+    background-color: white;
+    color: #780000;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.3rem;
+    font-weight: bold;
+}
+
+header button:hover {
+    background-color: #eeeeee;
+}
+
+
+/* ========================================
+   HERO
+   ======================================== */
+
+.hero {
+    min-height: 70vh;
+    background: linear-gradient(
+        rgba(80, 0, 0, 0.8),
+        rgba(120, 0, 0, 0.8)
+    );
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5%;
+}
+
+.heroContenido {
+    width: 80%;
+}
+
+.heroContenido h2 {
+    font-size: 4rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 0.5%;
+}
+
+.heroContenido h3 {
+    font-size: 3rem;
+    letter-spacing: 0.4rem;
+    margin-bottom: 2%;
+}
+
+.heroContenido p {
+    font-size: 1.2rem;
+    margin-bottom: 4%;
+}
+
+.heroBotones {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+}
+
+.heroBotones button {
+    padding: 1% 2.5%;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.heroBotones button:first-child {
+    background-color: white;
+    color: #780000;
+}
+
+.heroBotones button:last-child {
+    background-color: transparent;
+    color: white;
+    border: 0.1rem solid white;
+}
+
+.heroBotones button:hover {
+    opacity: 0.85;
+}
+
+
+/* ========================================
+   PROXIMO PARTIDO
+   ======================================== */
+
+.proximoPartido {
+    background-color: white;
+    text-align: center;
+    padding: 6% 5%;
+}
+
+.proximoPartido > h2 {
+    color: #780000;
+    font-size: 2rem;
+    margin-bottom: 4%;
+}
+
+.partido {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8%;
+    padding: 3%;
+    background-color: #f4f4f4;
+    border-radius: 0.5rem;
+}
+
+.equipo {
+    width: 30%;
+}
+
+.equipo h3 {
+    color: #780000;
+    font-size: 1.5rem;
+}
+
+.partido > h2 {
+    color: #555;
+    font-size: 1.4rem;
+}
+
+.proximoPartido > p {
+    color: #555;
+    margin: 3% 0;
+    font-weight: bold;
+}
+
+.proximoPartido > button {
+    background-color: #780000;
+    color: white;
+    padding: 1% 3%;
+    border-radius: 0.3rem;
+    font-weight: bold;
+}
+
+.proximoPartido > button:hover {
+    background-color: #5c0000;
+}
+
+
+/* ========================================
+   NOTICIAS
+   ======================================== */
+
+.noticias {
+    background-color: #f4f4f4;
+    padding: 6% 5%;
+}
+
+.noticias > h2 {
+    text-align: center;
+    color: #780000;
+    font-size: 2rem;
+    margin-bottom: 4%;
+}
+
+.contenedorNoticias {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3%;
+}
+
+.contenedorNoticias article {
+    background-color: white;
+    padding: 5%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.1);
+}
+
+.contenedorNoticias article h3 {
+    color: #780000;
+    font-size: 1.3rem;
+    margin-bottom: 4%;
+}
+
+.contenedorNoticias article p {
+    color: #666;
+    margin-bottom: 6%;
+}
+
+.contenedorNoticias article button {
+    background-color: #780000;
+    color: white;
+    padding: 3% 6%;
+    border-radius: 0.3rem;
+    font-weight: bold;
+}
+
+.contenedorNoticias article button:hover {
+    background-color: #5c0000;
+}
+
+
+/* ========================================
+   JUGADORES
+   ======================================== */
+
+.jugadores {
+    background-color: white;
+    padding: 6% 5%;
+}
+
+.jugadores > h2 {
+    text-align: center;
+    color: #780000;
+    font-size: 2rem;
+    margin-bottom: 4%;
+}
+
+.contenedorJugadores {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3%;
+}
+
+.jugador {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 7% 4%;
+    border-radius: 0.5rem;
+    border-bottom: 0.3rem solid #780000;
+}
+
+.jugador h3 {
+    color: #780000;
+    font-size: 1.2rem;
+    margin-bottom: 2%;
+}
+
+.jugador p {
+    color: #666;
+}
+
+
+/* ========================================
+   ESTADISTICAS
+   ======================================== */
+
+.estadisticas {
+    background-color: #780000;
+    color: white;
+    padding: 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
+
+.estadisticas div {
+    border-right: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+
+.estadisticas div:last-child {
+    border-right: none;
+}
+
+.estadisticas h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1%;
+}
+
+.estadisticas p {
+    font-size: 1rem;
+    color: #dddddd;
+}
+
+
+/* ========================================
+   HISTORIA
+   ======================================== */
+
+.historia {
+    background-color: #f4f4f4;
+    padding: 7% 10%;
+    display: flex;
+    align-items: center;
+}
+
+.historia > div {
+    width: 70%;
+}
+
+.historia h2 {
+    color: #780000;
+    font-size: 2.2rem;
+    margin-bottom: 4%;
+}
+
+.historia p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 4%;
+}
+
+.historia button {
+    background-color: #780000;
+    color: white;
+    padding: 1.5% 3%;
+    border-radius: 0.3rem;
+    font-weight: bold;
+}
+
+.historia button:hover {
+    background-color: #5c0000;
+}
+
+
+/* ========================================
+   GALERIA
+   ======================================== */
+
+.galeria {
+    background-color: white;
+    min-height: 25vh;
+    padding: 6% 5%;
+    text-align: center;
+}
+
+.galeria > h2 {
+    color: #780000;
+    font-size: 2rem;
+    margin-bottom: 4%;
+}
+
+.imagenes {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+}
+
+.imagenes img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 0.4rem;
+}
+
+
+/* ========================================
+   SPONSORS
+   ======================================== */
+
+.sponsors {
+    background-color: #f4f4f4;
+    min-height: 20vh;
+    padding: 6% 5%;
+    text-align: center;
+}
+
+.sponsors > h2 {
+    color: #780000;
+    font-size: 2rem;
+    margin-bottom: 4%;
+}
+
+.logos {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8%;
+}
+
+.logos img {
+    width: 12%;
+}
+
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+    background-color: #4d0000;
+    color: white;
+    text-align: center;
+    padding: 5% 5% 3%;
+}
+
+footer h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2%;
+}
+
+footer p {
+    color: #dddddd;
+    margin-bottom: 1%;
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 2% 4%;
+    }
+
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+
+    .heroContenido h2 {
+        font-size: 3rem;
+    }
+
+    .heroContenido h3 {
+        font-size: 2.3rem;
+    }
+
+    .contenedorNoticias {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4%;
+    }
+
+    .contenedorJugadores {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4%;
+    }
+
+    .estadisticas {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8%;
+    }
+
+    .estadisticas div {
+        border-right: none;
+    }
+
+    .historia > div {
+        width: 90%;
+    }
+
+    .imagenes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ========================================
+   CELULAR
+   ======================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 4%;
+        padding: 5%;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    header button {
+        padding: 2.5% 6%;
+    }
+
+    .hero {
+        min-height: 65vh;
+        padding: 8% 5%;
+    }
+
+    .heroContenido {
+        width: 95%;
+    }
+
+    .heroContenido h2 {
+        font-size: 2.2rem;
+        letter-spacing: 0.15rem;
+    }
+
+    .heroContenido h3 {
+        font-size: 1.8rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .heroContenido p {
+        font-size: 1rem;
+        margin-bottom: 8%;
+    }
+
+    .heroBotones {
+        flex-direction: column;
+        gap: 4%;
+    }
+
+    .heroBotones button {
+        padding: 4%;
+        width: 100%;
+    }
+
+    .proximoPartido {
+        padding: 10% 5%;
+    }
+
+    .partido {
+        width: 95%;
+        padding: 7% 3%;
+        gap: 4%;
+    }
+
+    .equipo {
+        width: 40%;
+    }
+
+    .equipo h3 {
+        font-size: 1.1rem;
+    }
+
+    .proximoPartido > button {
+        padding: 3% 7%;
+    }
+
+    .noticias,
+    .jugadores {
+        padding: 10% 5%;
+    }
+
+    .contenedorNoticias {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 5%;
+    }
+
+    .contenedorNoticias article {
+        padding: 7%;
+    }
+
+    .contenedorJugadores {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        gap: 4%;
+    }
+
+    .jugador {
+        padding: 10% 4%;
+    }
+
+    .estadisticas {
+        padding: 10% 5%;
+        grid-template-columns: 1fr 1fr;
+        gap: 10%;
+    }
+
+    .estadisticas h2 {
+        font-size: 2rem;
+    }
+
+    .historia {
+        padding: 12% 7%;
+    }
+
+    .historia > div {
+        width: 100%;
+    }
+
+    .historia h2 {
+        font-size: 1.8rem;
+    }
+
+    .historia p {
+        font-size: 1rem;
+    }
+
+    .historia button {
+        padding: 3% 6%;
+    }
+
+    .galeria,
+    .sponsors {
+        padding: 10% 5%;
+    }
+
+    .imagenes {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .logos {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .logos img {
+        width: 25%;
+    }
+
+    footer {
+        padding: 10% 5% 5%;
+    }
+
+    footer h2 {
+        font-size: 1.4rem;
+    }
+}
