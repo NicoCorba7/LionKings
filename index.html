@@ -25,32 +25,23 @@
         </div>
 
         <nav>
-<!--
             <ul>
-
-                <li><a href="#">Inicio</a></li>
-
-                <li><a href="#">Plantel</a></li>
-
-                <li><a href="#">Fixture</a></li>
-
-                <li><a href="#">Noticias</a></li>
-
-                <li><a href="#">Historia</a></li>
-
-                <li><a href="#">Contacto</a></li>
-
-                </ul>
-            -->
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#plantel">Plantel</a></li>
+                <li><a href="#fixture">Fixture</a></li>
+                <li><a href="#modulos">Gestión</a></li>
+                <li><a href="#reportes">Reportes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
         </nav>
 
-        <button>Asociate</button>
+        <button onclick="abrirModalSocio()">Asociate</button>
 
     </header>
 
     <!-- ================= HERO ================= -->
 
-    <section class="hero">
+    <section class="hero" id="inicio">
 
         <div class="heroContenido">
 
@@ -62,9 +53,9 @@
 
             <div class="heroBotones">
 
-                <button>Ver Fixture</button>
+                <button onclick="document.getElementById('fixture').scrollIntoView({behavior:'smooth'})">Ver Fixture</button>
 
-                <button>Conocer Plantel</button>
+                <button onclick="document.getElementById('plantel').scrollIntoView({behavior:'smooth'})">Conocer Plantel</button>
 
             </div>
 
@@ -100,7 +91,7 @@
 
         <p>Sábado 18 - 20:30 hs</p>
 
-        <button>Comprar Entradas</button>
+        <button onclick="abrirModalSocio()">Comprar Entradas</button>
 
     </section>
 
@@ -116,9 +107,9 @@
 <!--
                 <img src="img/noticia1.jpg" alt="">
             -->
-                <h3>Título de la noticia</h3>
+                <h3>LionKings se prepara para el torneo</h3>
 
-                <p>Breve descripción de la noticia...</p>
+                <p>El plantel completó la primera semana de pretemporada con muy buenas sensaciones de cara al inicio del campeonato regional.</p>
 
                 <button>Leer más</button>
 
@@ -128,9 +119,9 @@
 <!--
                 <img src="img/noticia2.jpg" alt="">
             -->
-                <h3>Título de la noticia</h3>
+                <h3>Nueva incorporación al plantel</h3>
 
-                <p>Breve descripción de la noticia...</p>
+                <p>El club confirmó la llegada de un nuevo jugador para reforzar la posición de base de cara a la temporada 2026.</p>
 
                 <button>Leer más</button>
 
@@ -140,9 +131,9 @@
 <!--
                 <img src="img/noticia3.jpg" alt="">
             -->
-                <h3>Título de la noticia</h3>
+                <h3>Gran victoria en el clásico local</h3>
 
-                <p>Breve descripción de la noticia...</p>
+                <p>LionKings se impuso por 78 a 62 ante su clásico rival en un partido vibrante disputado ante más de 800 espectadores.</p>
 
                 <button>Leer más</button>
 
@@ -154,17 +145,17 @@
 
     <!-- ================= PLANTEL DESTACADO ================= -->
 
-    <section class="jugadores">
+    <section class="jugadores" id="plantel">
 
         <h2>Jugadores Destacados</h2>
 
-        <div class="contenedorJugadores">
+        <div class="contenedorJugadores" id="contenedorJugadores">
 
             <div class="jugador">
 <!--
                 <img src="img/jugador1.png" alt="">
             -->
-                <h3>Nombre</h3>
+                <h3>Lucas Fernández</h3>
 
                 <p>Base</p>
 
@@ -174,7 +165,7 @@
 <!--
                 <img src="img/jugador2.png" alt="">
             -->
-                <h3>Nombre</h3>
+                <h3>Marcos Díaz</h3>
 
                 <p>Escolta</p>
 
@@ -184,7 +175,7 @@
 <!--
                 <img src="img/jugador3.png" alt="">
             -->
-                <h3>Nombre</h3>
+                <h3>Rodrigo Pérez</h3>
 
                 <p>Alero</p>
 
@@ -194,12 +185,16 @@
 <!--
                 <img src="img/jugador4.png" alt="">
             -->
-                <h3>Nombre</h3>
+                <h3>Sebastián Torres</h3>
 
                 <p>Pívot</p>
 
             </div>
 
+        </div>
+
+        <div style="text-align:center; margin-top: 3%;">
+            <button class="btnRojo" onclick="abrirModalJugador()">+ Agregar Jugador</button>
         </div>
 
     </section>
@@ -234,7 +229,7 @@
 
         <div>
 
-            <h2>5000</h2>
+            <h2 id="contadorSocios">0</h2>
 
             <p>Socios</p>
 
@@ -257,12 +252,286 @@
 
             </p>
 
+            <p>
+                Desde nuestros inicios en el barrio hasta los grandes escenarios del básquet nacional,
+                cada título, cada esfuerzo y cada jugador dejaron huella en la historia de este club.
+            </p>
+
             <button>Conocer más</button>
 
         </div>
 <!--
         <img src="img/historia.jpg" alt="Historia del club">
     -->
+    </section>
+
+    <!-- ================= MODULOS (Gestión del Club) ================= -->
+
+    <section class="modulos" id="modulos">
+
+        <h2>Gestión del Club</h2>
+
+        <div class="moduloContainer">
+
+            <!-- Pestañas de navegación entre módulos -->
+            <div class="moduloTabs">
+                <button class="tab activo" onclick="cambiarTab(this, 'tabSocios')">🏀 Socios</button>
+                <button class="tab" onclick="cambiarTab(this, 'tabJugadoresForm')">👤 Jugadores</button>
+                <button class="tab" onclick="cambiarTab(this, 'tabFixtureForm')">📅 Fixture</button>
+            </div>
+
+            <!-- ===== MÓDULO 1: REGISTRO DE SOCIOS ===== -->
+
+            <div class="tabContenido activo" id="tabSocios">
+
+                <h3>Registrar Nuevo Socio</h3>
+
+                <form id="formSocio" onsubmit="registrarSocio(event)">
+
+                    <div class="formGrilla">
+
+                        <div class="formGrupo">
+                            <label for="socioNombre">Nombre *</label>
+                            <input type="text" id="socioNombre" placeholder="Ej: Juan García">
+                            <span class="error" id="errNombre"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="socioDni">DNI *</label>
+                            <input type="text" id="socioDni" placeholder="Ej: 38000000">
+                            <span class="error" id="errDni"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="socioEmail">Email *</label>
+                            <input type="email" id="socioEmail" placeholder="Ej: juan@mail.com">
+                            <span class="error" id="errEmail"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="socioTelefono">Teléfono</label>
+                            <input type="text" id="socioTelefono" placeholder="Ej: 11-1234-5678">
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="socioPlan">Plan de Socio *</label>
+                            <select id="socioPlan">
+                                <option value="">-- Seleccionar --</option>
+                                <option value="Básico">Básico - $5.000/mes</option>
+                                <option value="Familiar">Familiar - $8.000/mes</option>
+                                <option value="Premium">Premium - $12.000/mes</option>
+                            </select>
+                            <span class="error" id="errPlan"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="socioFecha">Fecha de alta *</label>
+                            <input type="date" id="socioFecha">
+                            <span class="error" id="errFecha"></span>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btnRojo">Registrar Socio</button>
+
+                </form>
+
+                <div id="mensajeSocio" class="mensajeExito" style="display:none;">
+                    ✅ Socio registrado correctamente.
+                </div>
+
+            </div>
+
+            <!-- ===== MÓDULO 2: CARGA DE JUGADORES ===== -->
+
+            <div class="tabContenido" id="tabJugadoresForm" style="display:none;">
+
+                <h3>Agregar Jugador al Plantel</h3>
+
+                <form id="formJugador" onsubmit="registrarJugador(event)">
+
+                    <div class="formGrilla">
+
+                        <div class="formGrupo">
+                            <label for="jugNombre">Nombre completo *</label>
+                            <input type="text" id="jugNombre" placeholder="Ej: Carlos López">
+                            <span class="error" id="errJugNombre"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="jugNumero">Número de camiseta *</label>
+                            <input type="number" id="jugNumero" placeholder="Ej: 10" min="0" max="99">
+                            <span class="error" id="errJugNumero"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="jugPosicion">Posición *</label>
+                            <select id="jugPosicion">
+                                <option value="">-- Seleccionar --</option>
+                                <option value="Base">Base</option>
+                                <option value="Escolta">Escolta</option>
+                                <option value="Alero">Alero</option>
+                                <option value="Ala-Pívot">Ala-Pívot</option>
+                                <option value="Pívot">Pívot</option>
+                            </select>
+                            <span class="error" id="errJugPosicion"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="jugEdad">Edad</label>
+                            <input type="number" id="jugEdad" placeholder="Ej: 22" min="14" max="50">
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btnRojo">Agregar Jugador</button>
+
+                </form>
+
+                <div id="mensajeJugador" class="mensajeExito" style="display:none;">
+                    ✅ Jugador agregado al plantel correctamente.
+                </div>
+
+            </div>
+
+            <!-- ===== MÓDULO 3: FIXTURE / PARTIDOS ===== -->
+
+            <div class="tabContenido" id="tabFixtureForm" style="display:none;">
+
+                <h3>Cargar Partido</h3>
+
+                <form id="formPartido" onsubmit="registrarPartido(event)">
+
+                    <div class="formGrilla">
+
+                        <div class="formGrupo">
+                            <label for="parRival">Rival *</label>
+                            <input type="text" id="parRival" placeholder="Ej: Quilmes BC">
+                            <span class="error" id="errParRival"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="parFecha">Fecha del partido *</label>
+                            <input type="date" id="parFecha">
+                            <span class="error" id="errParFecha"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="parHora">Hora *</label>
+                            <input type="time" id="parHora">
+                            <span class="error" id="errParHora"></span>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="parCondicion">Condición</label>
+                            <select id="parCondicion">
+                                <option value="Local">Local</option>
+                                <option value="Visitante">Visitante</option>
+                            </select>
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="parResultado">Resultado (opcional)</label>
+                            <input type="text" id="parResultado" placeholder="Ej: 78 - 62">
+                        </div>
+
+                        <div class="formGrupo">
+                            <label for="parCategoria">Categoría</label>
+                            <select id="parCategoria">
+                                <option value="Primera">Primera División</option>
+                                <option value="Reserva">Reserva</option>
+                                <option value="Juveniles">Juveniles</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btnRojo">Guardar Partido</button>
+
+                </form>
+
+                <div id="mensajePartido" class="mensajeExito" style="display:none;">
+                    ✅ Partido guardado correctamente.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FIXTURE (tabla pública) ================= -->
+
+    <section class="fixture" id="fixture">
+
+        <h2>Fixture</h2>
+
+        <div class="filtrosFixture">
+            <select id="filtroCategoria" onchange="renderFixture()">
+                <option value="">Todas las categorías</option>
+                <option value="Primera">Primera División</option>
+                <option value="Reserva">Reserva</option>
+                <option value="Juveniles">Juveniles</option>
+            </select>
+        </div>
+
+        <div id="tablaFixture">
+            <p class="sinDatos">No hay partidos cargados todavía.</p>
+        </div>
+
+    </section>
+
+    <!-- ================= REPORTES ================= -->
+
+    <section class="reportes" id="reportes">
+
+        <h2>Reportes</h2>
+
+        <div class="reportesGrilla">
+
+            <!-- Reporte de Socios -->
+            <div class="reporteBloque">
+
+                <h3>📋 Listado de Socios</h3>
+
+                <div class="reporteFiltros">
+                    <input type="text" id="buscarSocio" placeholder="Buscar por nombre o DNI..." oninput="renderTablaSocios()">
+                </div>
+
+                <div id="tablaSocios">
+                    <p class="sinDatos">No hay socios registrados.</p>
+                </div>
+
+                <div class="reporteAcciones">
+                    <button class="btnRojo" onclick="exportarSocios()">Exportar Socios</button>
+                    <button class="btnBorde" onclick="borrarTodosSocios()">Limpiar lista</button>
+                </div>
+
+            </div>
+
+            <!-- Reporte: Resumen del club -->
+            <div class="reporteBloque">
+
+                <h3>📊 Resumen del Club</h3>
+
+                <div class="resumenEstadisticas" id="resumenEstadisticas">
+                    <!-- Generado por JS -->
+                </div>
+
+                <h3 style="margin-top: 5%;">🏀 Plantel Registrado</h3>
+
+                <div id="tablaJugadores">
+                    <p class="sinDatos">No hay jugadores cargados.</p>
+                </div>
+
+                <div class="reporteAcciones">
+                    <button class="btnBorde" onclick="borrarTodosJugadores()">Limpiar plantel</button>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
     <!-- ================= GALERIA ================= -->
@@ -283,6 +552,8 @@
         </div>
     -->
 
+        <p class="sinDatos" style="text-align:center;">Próximamente - Galería de fotos del club</p>
+
     </section>
 
     <!-- ================= SPONSORS ================= -->
@@ -290,16 +561,69 @@
     <section class="sponsors">
 
         <h2>Sponsors</h2>
-<!--
-        <div class="logos">
 
-            <img src="img/sponsor1.png" alt="">
-            <img src="img/sponsor2.png" alt="">
-            <img src="img/sponsor3.png" alt="">
-            <img src="img/sponsor4.png" alt="">
+        <div class="patrocinadores">
+            <div class="sponsor"><p>🏪 Sponsor 1</p></div>
+            <div class="sponsor"><p>🏪 Sponsor 2</p></div>
+            <div class="sponsor"><p>🏪 Sponsor 3</p></div>
+            <div class="sponsor"><p>🏪 Sponsor 4</p></div>
+        </div>
+
+    </section>
+
+    <!-- ================= CONTACTO ================= -->
+
+    <section class="contacto" id="contacto">
+
+        <h2>Contacto</h2>
+
+        <div class="contactoGrilla">
+
+            <div class="contactoInfo">
+                <h3>Encontranos</h3>
+                <p>📍 Av. Mitre 1234, Avellaneda, Buenos Aires</p>
+                <p>📞 (011) 4222-5678</p>
+                <p>✉️ info@lionkingsavellaneda.com.ar</p>
+                <p>🕐 Lunes a Viernes: 8:00 - 22:00 hs</p>
+                <p>🕐 Sábados: 9:00 - 20:00 hs</p>
+            </div>
+
+            <div class="contactoForm">
+
+                <h3>Envianos un mensaje</h3>
+
+                <form id="formContacto" onsubmit="enviarContacto(event)">
+
+                    <div class="formGrupo">
+                        <label for="contactoNombre">Nombre *</label>
+                        <input type="text" id="contactoNombre" placeholder="Tu nombre">
+                        <span class="error" id="errContactoNombre"></span>
+                    </div>
+
+                    <div class="formGrupo">
+                        <label for="contactoEmail">Email *</label>
+                        <input type="email" id="contactoEmail" placeholder="Tu email">
+                        <span class="error" id="errContactoEmail"></span>
+                    </div>
+
+                    <div class="formGrupo">
+                        <label for="contactoMensaje">Mensaje *</label>
+                        <textarea id="contactoMensaje" placeholder="Escribí tu consulta..." rows="4"></textarea>
+                        <span class="error" id="errContactoMensaje"></span>
+                    </div>
+
+                    <button type="submit" class="btnRojo">Enviar Mensaje</button>
+
+                </form>
+
+                <div id="mensajeContacto" class="mensajeExito" style="display:none;">
+                    ✅ Mensaje enviado. ¡Te contactamos pronto!
+                </div>
+
+            </div>
 
         </div>
-    -->
+
     </section>
 
     <!-- ================= FOOTER ================= -->
@@ -315,6 +639,28 @@
         <p>© 2026 Todos los derechos reservados.</p>
 
     </footer>
+
+    <!-- ================= MODAL: ASOCIATE ================= -->
+
+    <div class="modalOverlay" id="modalSocio" style="display:none;">
+        <div class="modalCaja">
+            <button class="modalCerrar" onclick="cerrarModal('modalSocio')">✕</button>
+            <h3>Asociate a LionKings</h3>
+            <p>Completá el formulario en la sección <strong>Gestión del Club</strong> para registrarte como socio.</p>
+            <button class="btnRojo" onclick="cerrarModal('modalSocio'); document.getElementById('modulos').scrollIntoView({behavior:'smooth'})">Ir al formulario</button>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: JUGADOR ================= -->
+
+    <div class="modalOverlay" id="modalJugador" style="display:none;">
+        <div class="modalCaja">
+            <button class="modalCerrar" onclick="cerrarModal('modalJugador')">✕</button>
+            <h3>Agregar Jugador</h3>
+            <p>Usá la pestaña <strong>Jugadores</strong> en la sección Gestión del Club.</p>
+            <button class="btnRojo" onclick="cerrarModal('modalJugador'); document.getElementById('modulos').scrollIntoView({behavior:'smooth'}); cambiarTabPorId('tabJugadoresForm')">Ir al formulario</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 

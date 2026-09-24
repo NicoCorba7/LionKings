@@ -1,0 +1,313 @@
+﻿AVELLANEDA LIONKINGS - DOCUMENTACION DEL PROYECTO
+==================================================
+==================================================
+DESCRIPCION GENERAL
+==================================================
+
+Pagina web del club de basquet Avellaneda LionKings.
+
+Archivos del proyecto:
+  - index.html  -> Estructura de la pagina
+  - style.css   -> Todos los estilos visuales
+  - script.js   -> Toda la logica y funcionalidad
+
+
+==================================================
+SECCIONES DEL HTML (de arriba hacia abajo)
+==================================================
+
+1. HEADER
+   - Barra superior con el nombre del club y menu de navegacion.
+   - El boton "Asociate" abre un modal que guia al usuario al formulario de socios.
+   - Los links del menu usan anclas (#id) para scrollear a cada seccion.
+
+2. HERO
+   - Seccion principal grande con el nombre del club y fondo rojo oscuro.
+   - Dos botones que hacen scroll a las secciones de Fixture y Plantel.
+
+3. PROXIMO PARTIDO
+   - Muestra el dato del siguiente partido del equipo (fijo en el HTML).
+   - El boton "Comprar Entradas" tambien abre el modal de socios.
+
+4. NOTICIAS
+   - Tres tarjetas con noticias del club (contenido fijo escrito en el HTML).
+
+5. PLANTEL DESTACADO
+   - Muestra los 4 jugadores base escritos en el HTML.
+   - Cuando se agregan jugadores desde el modulo, aparecen nuevas tarjetas dinamicamente.
+   - El boton "+ Agregar Jugador" abre el modal que lleva al formulario.
+
+6. ESTADISTICAS
+   - Barra de estadisticas fijas: 85 años, 12 titulos, 250 victorias.
+   - El contador de "Socios" se actualiza automaticamente con los datos del localStorage.
+
+7. HISTORIA
+   - Seccion de texto con la historia del club (contenido fijo en el HTML).
+
+8. MODULOS - GESTION DEL CLUB (nueva seccion)
+   - Es la seccion principal de funcionalidad. Tiene 3 pestañas:
+
+   a) Pestaña SOCIOS (Modulo 1)
+      - Formulario para registrar nuevos socios.
+      - Campos: Nombre, DNI, Email, Telefono, Plan, Fecha de alta.
+      - Guarda los datos en localStorage.
+
+   b) Pestaña JUGADORES (Modulo 2)
+      - Formulario para agregar jugadores al plantel.
+      - Campos: Nombre, Numero de camiseta, Posicion, Edad.
+      - Guarda los datos en localStorage.
+
+   c) Pestaña FIXTURE (Modulo 3)
+      - Formulario para cargar partidos.
+      - Campos: Rival, Fecha, Hora, Condicion (Local/Visitante), Resultado, Categoria.
+      - Guarda los datos en localStorage.
+
+9. FIXTURE (tabla publica)
+   - Muestra todos los partidos cargados en una tabla.
+   - Se puede filtrar por categoria (Primera, Reserva, Juveniles).
+   - Los partidos se ordenan por fecha automaticamente.
+   - Cada fila tiene un boton de eliminar (icono basura).
+
+10. REPORTES
+    - Dividida en dos bloques lado a lado:
+
+    a) Listado de Socios
+       - Tabla con todos los socios registrados.
+       - Tiene un buscador en tiempo real por nombre o DNI.
+       - Boton para exportar la lista como archivo .txt (descarga en el navegador).
+       - Boton para borrar todos los socios.
+
+    b) Resumen del Club
+       - Tarjetas con estadisticas generadas automaticamente:
+         Total de socios, jugadores, partidos, partidos con resultado,
+         cantidad de socios por tipo de plan.
+       - Tabla con el plantel registrado dinamicamente.
+       - Boton para borrar todos los jugadores.
+
+11. GALERIA
+    - Seccion vacia con cartel "Proximamente". Las imagenes estan comentadas
+      en el HTML para cuando se consigan las fotos reales.
+
+12. SPONSORS
+    - Muestra 4 bloques de sponsor como placeholder (sin imagenes).
+
+13. CONTACTO
+    - Informacion del club a la izquierda (direccion, telefono, email, horarios).
+    - Formulario de contacto a la derecha con validacion.
+    - Al enviar muestra un mensaje de exito (simulado, no envia emails reales).
+
+14. FOOTER
+    - Pie de pagina con nombre del club, ciudad y copyright.
+
+15. MODALES
+    - Son ventanas emergentes que aparecen sobre la pagina.
+    - Modal "Asociate": aparece al hacer clic en el boton del header o en "Comprar Entradas".
+    - Modal "Agregar Jugador": aparece al hacer clic en el boton del plantel.
+    - Se cierran haciendo clic en la X o en el fondo oscuro.
+
+
+==================================================
+LOGICA JAVASCRIPT (script.js)
+==================================================
+
+FUNCIONES PRINCIPALES:
+
+cambiarTab(boton, idTab)
+  - Maneja el cambio entre las 3 pestanhas del modulo de gestion.
+  - Oculta todos los contenidos y muestra solo el seleccionado.
+  - Agrega/quita la clase CSS "activo" para cambiar el estilo visual.
+
+cambiarTabPorId(idTab)
+  - Igual que cambiarTab pero se llama pasando solo el id del contenido.
+  - Se usa desde los botones de los modales.
+
+abrirModalSocio() / abrirModalJugador() / cerrarModal(id)
+  - Muestran u ocultan los modales cambiando el display del elemento.
+
+-- MODULO SOCIOS --
+
+obtenerSocios() / guardarSocios(socios)
+  - Leen y escriben el array de socios en localStorage como JSON.
+
+registrarSocio(evento)
+  - Toma los valores del formulario.
+  - Valida: nombre minimo 3 caracteres, DNI de 7 u 8 digitos, email valido,
+    plan seleccionado, fecha no vacia.
+  - Verifica que no haya un DNI duplicado.
+  - Crea el objeto socio con un ID unico (Date.now()).
+  - Lo guarda y actualiza todas las vistas.
+
+eliminarSocio(id) / borrarTodosSocios()
+  - Eliminan socios del array y actualizan las vistas.
+
+actualizarContadorSocios()
+  - Cambia el numero que aparece en la seccion de estadisticas.
+
+renderTablaSocios()
+  - Construye la tabla HTML de socios dinamicamente.
+  - Aplica el filtro de busqueda en tiempo real.
+
+exportarSocios()
+  - Arma un texto plano con todos los datos y lo descarga como archivo .txt.
+  - Usa Blob y URL.createObjectURL (tecnica estandar de descarga sin backend).
+
+-- MODULO JUGADORES --
+
+registrarJugador(evento)
+  - Valida: nombre, numero entre 0 y 99, posicion seleccionada.
+  - Verifica numero de camiseta no duplicado.
+
+renderTablaJugadores()
+  - Genera la tabla en la seccion de Reportes.
+
+actualizarPlantelDestacado()
+  - Agrega tarjetas dinamicas en la seccion "Jugadores Destacados".
+  - Los que tienen el atributo data-dinamico="true" son los agregados por JS.
+  - Al recargar, limpia los dinamicos y los vuelve a crear desde localStorage.
+
+-- MODULO FIXTURE --
+
+registrarPartido(evento)
+  - Valida: rival, fecha y hora son obligatorios.
+
+renderFixture()
+  - Genera la tabla del fixture con filtro por categoria.
+  - Ordena los partidos por fecha (de menor a mayor).
+  - Muestra badges de color segun si es Local o Visitante.
+
+-- REPORTES --
+
+renderResumen()
+  - Cuenta y muestra estadisticas calculadas desde los 3 storages.
+
+-- CONTACTO --
+
+enviarContacto(evento)
+  - Valida nombre, email y mensaje (minimo 10 caracteres).
+  - Muestra mensaje de exito (no hay envio real de datos).
+
+formatearFecha(fechaStr)
+  - Convierte el formato "YYYY-MM-DD" que devuelve el input type=date
+    al formato "DD/MM/YYYY" mas legible para mostrar al usuario.
+
+window.onload
+  - Se ejecuta cuando termina de cargar la pagina.
+  - Llama a todas las funciones de render para mostrar los datos guardados.
+
+
+==================================================
+PERSISTENCIA CON localStorage
+==================================================
+
+Los datos se guardan en el navegador con 3 claves:
+
+  lionkings_socios   -> Array de objetos socio en formato JSON
+  lionkings_jugadores -> Array de objetos jugador en formato JSON
+  lionkings_partidos  -> Array de objetos partido en formato JSON
+
+IMPORTANTE: localStorage es por navegador y por dominio. Si se abre el
+archivo desde otra computadora o en modo incognito, no habra datos guardados.
+Esto es normal y esperado para un proyecto de este tipo.
+
+Para ver los datos guardados: clic derecho en la pagina -> Inspeccionar ->
+pestaña Application (o Almacenamiento) -> Local Storage.
+
+Para borrar todos los datos manualmente desde el navegador:
+Application -> Local Storage -> boton derecho -> Clear.
+
+
+==================================================
+VALIDACIONES IMPLEMENTADAS
+==================================================
+
+Formulario de Socios:
+  - Nombre: minimo 3 caracteres
+  - DNI: solo numeros, 7 u 8 digitos (sin puntos ni espacios)
+  - Email: debe tener @ y punto
+  - Plan: campo obligatorio (select)
+  - Fecha: campo obligatorio
+  - DNI no duplicado: no permite registrar dos socios con el mismo DNI
+
+Formulario de Jugadores:
+  - Nombre: minimo 3 caracteres
+  - Numero de camiseta: entre 0 y 99, obligatorio
+  - Posicion: campo obligatorio (select)
+  - Numero no duplicado: no permite dos jugadores con el mismo numero
+
+Formulario de Fixture:
+  - Rival: minimo 2 caracteres
+  - Fecha: obligatoria
+  - Hora: obligatoria
+
+Formulario de Contacto:
+  - Nombre: minimo 2 caracteres
+  - Email: debe tener @
+  - Mensaje: minimo 10 caracteres
+
+Los errores se muestran en rojo debajo de cada campo.
+Se limpian automaticamente al enviar el formulario nuevamente.
+
+
+==================================================
+COSAS IMPORTANTES A SABER
+==================================================
+
+1. LAS IMAGENES ESTAN COMENTADAS
+   Todas las etiquetas <img> del HTML original estaban comentadas porque no
+   habia archivos de imagen. Se mantuvieron como comentarios para que cuando
+   se consigan las fotos, se puedan descomentar facilmente.
+
+2. EL FORMULARIO DE CONTACTO NO ENVIA EMAILS REALES
+   Solo valida y muestra un mensaje de exito. Para enviar emails reales desde
+   el navegador necesitaria un servicio externo (como EmailJS o un servidor).
+
+3. LA EXPORTACION DE SOCIOS
+   Genera un archivo .txt que se descarga automaticamente. Funciona solo en
+   navegadores modernos (Chrome, Firefox, Edge actualizados).
+
+4. LOS DATOS SE BORRAN SI SE LIMPIA EL NAVEGADOR
+   Si el usuario borra el historial o los datos del navegador, pierde todo.
+   Es la limitacion principal del localStorage.
+
+5. EL CONTADOR DE SOCIOS EN ESTADISTICAS
+   El numero de "Socios" que se ve en la barra de estadisticas se actualiza
+   automaticamente cada vez que se registra o elimina un socio.
+
+6. LOS JUGADORES AGREGADOS POR JS SE DISTINGUEN
+   Las tarjetas del plantel agregadas desde el formulario tienen el atributo
+   data-dinamico="true" en el HTML generado por JavaScript.
+   Esto permite diferenciarlas de las 4 tarjetas base escritas en el HTML.
+
+7. COMPATIBILIDAD
+   El proyecto usa JavaScript sin clases ni funciones flecha (=>) para mayor
+   compatibilidad y para que sea mas facil de entender para estudiantes.
+   Todo el codigo usa var, for y function tradicionales.
+
+8. RESPONSIVE
+   El CSS tiene 3 breakpoints:
+   - Desktop: mas de 900px (diseno completo)
+   - Tablet: hasta 900px (grillas de 2 columnas o 1)
+   - Celular: hasta 600px (todo en columna, pestanhas verticales)
+
+
+==================================================
+POSIBLES PROBLEMAS QUE PUEDEN SURGIR
+==================================================
+
+- Si aparece "No hay partidos cargados" aunque se hayan agregado:
+  Verificar que el script.js este bien vinculado en el HTML
+  (la etiqueta <script src="script.js"> al final del body).
+
+- Si no funciona nada al abrir el archivo:
+  Asegurarse de abrir index.html con un navegador web, no con el bloc de notas.
+
+- Si los datos no persisten entre sesiones:
+  Puede que el navegador este en modo incognito o que se haya limpiado el localStorage.
+
+- Si se quiere empezar con datos limpios:
+  Usar los botones "Limpiar lista" y "Limpiar plantel" en la seccion Reportes.
+  O ir a Herramientas del desarrollador -> Application -> Local Storage -> Clear.
+
+- Las funciones de los botones de eliminar usan el id del elemento (un numero).
+  Si se ve algo raro en la tabla, puede ser un problema con el ID generado por Date.now().
+
