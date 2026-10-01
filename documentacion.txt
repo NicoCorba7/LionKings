@@ -33,13 +33,12 @@ SECCIONES DEL HTML (de arriba hacia abajo)
    - Tres tarjetas con noticias del club (contenido fijo escrito en el HTML).
 
 5. PLANTEL DESTACADO
-   - Muestra los 4 jugadores base escritos en el HTML.
    - Cuando se agregan jugadores desde el modulo, aparecen nuevas tarjetas dinamicamente.
    - El boton "+ Agregar Jugador" abre el modal que lleva al formulario.
 
 6. ESTADISTICAS
    - Barra de estadisticas fijas: 85 años, 12 titulos, 250 victorias.
-   - El contador de "Socios" se actualiza automaticamente con los datos del localStorage.
+   - El contador de "Socios" se actualiza automaticamente con los datos del localStorage. (a cambiar proximamente con base de datos)
 
 7. HISTORIA
    - Seccion de texto con la historia del club (contenido fijo en el HTML).
@@ -86,7 +85,7 @@ SECCIONES DEL HTML (de arriba hacia abajo)
 
 11. GALERIA
     - Seccion vacia con cartel "Proximamente". Las imagenes estan comentadas
-      en el HTML para cuando se consigan las fotos reales.
+      en el HTML para cuando se agreguen las fotos reales.
 
 12. SPONSORS
     - Muestra 4 bloques de sponsor como placeholder (sin imagenes).
@@ -175,12 +174,11 @@ renderFixture()
   - Ordena los partidos por fecha (de menor a mayor).
   - Muestra badges de color segun si es Local o Visitante.
 
--- REPORTES --
+
 
 renderResumen()
   - Cuenta y muestra estadisticas calculadas desde los 3 storages.
 
--- CONTACTO --
 
 enviarContacto(evento)
   - Valida nombre, email y mensaje (minimo 10 caracteres).
@@ -195,30 +193,12 @@ window.onload
   - Llama a todas las funciones de render para mostrar los datos guardados.
 
 
-==================================================
-PERSISTENCIA CON localStorage
-==================================================
 
 Los datos se guardan en el navegador con 3 claves:
 
   lionkings_socios   -> Array de objetos socio en formato JSON
   lionkings_jugadores -> Array de objetos jugador en formato JSON
-  lionkings_partidos  -> Array de objetos partido en formato JSON
-
-IMPORTANTE: localStorage es por navegador y por dominio. Si se abre el
-archivo desde otra computadora o en modo incognito, no habra datos guardados.
-Esto es normal y esperado para un proyecto de este tipo.
-
-Para ver los datos guardados: clic derecho en la pagina -> Inspeccionar ->
-pestaña Application (o Almacenamiento) -> Local Storage.
-
-Para borrar todos los datos manualmente desde el navegador:
-Application -> Local Storage -> boton derecho -> Clear.
-
-
-==================================================
-VALIDACIONES IMPLEMENTADAS
-==================================================
+  lionkings_partidos  -> Array de objetos partido en formato JSO
 
 Formulario de Socios:
   - Nombre: minimo 3 caracteres
@@ -244,70 +224,5 @@ Formulario de Contacto:
   - Email: debe tener @
   - Mensaje: minimo 10 caracteres
 
-Los errores se muestran en rojo debajo de cada campo.
-Se limpian automaticamente al enviar el formulario nuevamente.
 
-
-==================================================
-COSAS IMPORTANTES A SABER
-==================================================
-
-1. LAS IMAGENES ESTAN COMENTADAS
-   Todas las etiquetas <img> del HTML original estaban comentadas porque no
-   habia archivos de imagen. Se mantuvieron como comentarios para que cuando
-   se consigan las fotos, se puedan descomentar facilmente.
-
-2. EL FORMULARIO DE CONTACTO NO ENVIA EMAILS REALES
-   Solo valida y muestra un mensaje de exito. Para enviar emails reales desde
-   el navegador necesitaria un servicio externo (como EmailJS o un servidor).
-
-3. LA EXPORTACION DE SOCIOS
-   Genera un archivo .txt que se descarga automaticamente. Funciona solo en
-   navegadores modernos (Chrome, Firefox, Edge actualizados).
-
-4. LOS DATOS SE BORRAN SI SE LIMPIA EL NAVEGADOR
-   Si el usuario borra el historial o los datos del navegador, pierde todo.
-   Es la limitacion principal del localStorage.
-
-5. EL CONTADOR DE SOCIOS EN ESTADISTICAS
-   El numero de "Socios" que se ve en la barra de estadisticas se actualiza
-   automaticamente cada vez que se registra o elimina un socio.
-
-6. LOS JUGADORES AGREGADOS POR JS SE DISTINGUEN
-   Las tarjetas del plantel agregadas desde el formulario tienen el atributo
-   data-dinamico="true" en el HTML generado por JavaScript.
-   Esto permite diferenciarlas de las 4 tarjetas base escritas en el HTML.
-
-7. COMPATIBILIDAD
-   El proyecto usa JavaScript sin clases ni funciones flecha (=>) para mayor
-   compatibilidad y para que sea mas facil de entender para estudiantes.
-   Todo el codigo usa var, for y function tradicionales.
-
-8. RESPONSIVE
-   El CSS tiene 3 breakpoints:
-   - Desktop: mas de 900px (diseno completo)
-   - Tablet: hasta 900px (grillas de 2 columnas o 1)
-   - Celular: hasta 600px (todo en columna, pestanhas verticales)
-
-
-==================================================
-POSIBLES PROBLEMAS QUE PUEDEN SURGIR
-==================================================
-
-- Si aparece "No hay partidos cargados" aunque se hayan agregado:
-  Verificar que el script.js este bien vinculado en el HTML
-  (la etiqueta <script src="script.js"> al final del body).
-
-- Si no funciona nada al abrir el archivo:
-  Asegurarse de abrir index.html con un navegador web, no con el bloc de notas.
-
-- Si los datos no persisten entre sesiones:
-  Puede que el navegador este en modo incognito o que se haya limpiado el localStorage.
-
-- Si se quiere empezar con datos limpios:
-  Usar los botones "Limpiar lista" y "Limpiar plantel" en la seccion Reportes.
-  O ir a Herramientas del desarrollador -> Application -> Local Storage -> Clear.
-
-- Las funciones de los botones de eliminar usan el id del elemento (un numero).
-  Si se ve algo raro en la tabla, puede ser un problema con el ID generado por Date.now().
 
