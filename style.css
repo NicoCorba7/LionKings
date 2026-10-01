@@ -36,7 +36,7 @@ section {
 
 header {
     width: 100%;
-    background-color: #780000;
+    background-color: #af0303;
     color: white;
     padding: 1.5% 5%;
     display: flex;
@@ -67,19 +67,19 @@ nav a {
 }
 
 nav a:hover {
-    color: #dddddd;
+    color: black;
 }
 
 header button {
     background-color: white;
-    color: #780000;
+    color: #af0303;
     padding: 0.8rem 1.5rem;
     border-radius: 0.3rem;
     font-weight: bold;
 }
 
 header button:hover {
-    background-color: #eeeeee;
+    background-color: b;
 }
 
 
@@ -90,10 +90,10 @@ header button:hover {
 .hero {
     min-height: 70vh;
     background: linear-gradient(
-        rgba(80, 0, 0, 0.8),
-        rgba(120, 0, 0, 0.8)
+        rgba(197, 1, 1, 0.8),
+        rgba(184, 1, 1, 0.8)
     );
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,7 +137,7 @@ header button:hover {
 
 .heroBotones button:first-child {
     background-color: white;
-    color: #780000;
+    color: #af0303;
 }
 
 .heroBotones button:last-child {
@@ -162,7 +162,7 @@ header button:hover {
 }
 
 .proximoPartido > h2 {
-    color: #780000;
+    color: black;
     font-size: 2rem;
     margin-bottom: 4%;
 }
@@ -175,7 +175,7 @@ header button:hover {
     justify-content: center;
     gap: 8%;
     padding: 3%;
-    background-color: #f4f4f4;
+    background-color: rgb(223, 221, 221);
     border-radius: 0.5rem;
 }
 
@@ -184,23 +184,23 @@ header button:hover {
 }
 
 .equipo h3 {
-    color: #780000;
+    color: #af0303;
     font-size: 1.5rem;
 }
 
 .partido > h2 {
-    color: #555;
+    color: black;
     font-size: 1.4rem;
 }
 
 .proximoPartido > p {
-    color: #555;
+    color: black;
     margin: 3% 0;
     font-weight: bold;
 }
 
 .proximoPartido > button {
-    background-color: #780000;
+    background-color: #af0303;
     color: white;
     padding: 1% 3%;
     border-radius: 0.3rem;
@@ -208,7 +208,7 @@ header button:hover {
 }
 
 .proximoPartido > button:hover {
-    background-color: #5c0000;
+    background-color: #af0303;
 }
 
 
@@ -223,7 +223,7 @@ header button:hover {
 
 .noticias > h2 {
     text-align: center;
-    color: #780000;
+    color: #af0303;
     font-size: 2rem;
     margin-bottom: 4%;
 }
@@ -244,7 +244,7 @@ header button:hover {
 }
 
 .contenedorNoticias article h3 {
-    color: #780000;
+    color: #af0303;
     font-size: 1.3rem;
     margin-bottom: 4%;
 }
@@ -255,7 +255,7 @@ header button:hover {
 }
 
 .contenedorNoticias article button {
-    background-color: #780000;
+    background-color: #af0303;
     color: white;
     padding: 3% 6%;
     border-radius: 0.3rem;
@@ -263,7 +263,7 @@ header button:hover {
 }
 
 .contenedorNoticias article button:hover {
-    background-color: #5c0000;
+    background-color: #af0303;
 }
 
 
@@ -278,7 +278,7 @@ header button:hover {
 
 .jugadores > h2 {
     text-align: center;
-    color: #780000;
+    color: #af0303;
     font-size: 2rem;
     margin-bottom: 4%;
 }
@@ -296,11 +296,11 @@ header button:hover {
     text-align: center;
     padding: 7% 4%;
     border-radius: 0.5rem;
-    border-bottom: 0.3rem solid #780000;
+    border-bottom: 0.3rem solid #af0303;
 }
 
 .jugador h3 {
-    color: #780000;
+    color: #af0303;
     font-size: 1.2rem;
     margin-bottom: 2%;
 }
@@ -315,7 +315,7 @@ header button:hover {
    ======================================== */
 
 .estadisticas {
-    background-color: #780000;
+    background-color: #af0303;
     color: white;
     padding: 5%;
     display: grid;
@@ -358,7 +358,7 @@ header button:hover {
 }
 
 .historia h2 {
-    color: #780000;
+    color: #af0303;
     font-size: 2.2rem;
     margin-bottom: 4%;
 }
@@ -371,7 +371,7 @@ header button:hover {
 }
 
 .historia button {
-    background-color: #780000;
+    background-color: #af0303;
     color: white;
     padding: 1.5% 3%;
     border-radius: 0.3rem;
@@ -379,7 +379,7 @@ header button:hover {
 }
 
 .historia button:hover {
-    background-color: #5c0000;
+    background-color: #af0303;
 }
 
 
@@ -395,7 +395,7 @@ header button:hover {
 }
 
 .galeria > h2 {
-    color: #780000;
+    color: #af0303;
     font-size: 2rem;
     margin-bottom: 4%;
 }
@@ -428,7 +428,7 @@ header button:hover {
 }
 
 .sponsors > h2 {
-    color: #780000;
+    color: #af0303;
     font-size: 2rem;
     margin-bottom: 4%;
 }
@@ -452,7 +452,7 @@ header button:hover {
    ======================================== */
 
 footer {
-    background-color: #4d0000;
+    background-color: #af0303;
     color: white;
     text-align: center;
     padding: 5% 5% 3%;
@@ -690,7 +690,7 @@ footer p {
    ======================================== */
 
 .btnRojo {
-    background-color: #780000;
+    background-color: #af0303;
     color: white;
     padding: 0.8rem 1.8rem;
     border-radius: 0.3rem;
@@ -701,17 +701,17 @@ footer p {
 }
 
 .btnRojo:hover {
-    background-color: #5c0000;
+    background-color: #af0303;
 }
 
 .btnBorde {
     background-color: transparent;
-    color: #780000;
+    color: #af0303;
     padding: 0.8rem 1.8rem;
     border-radius: 0.3rem;
     font-weight: bold;
     font-size: 0.95rem;
-    border: 0.15rem solid #780000;
+    border: 0.15rem solid #af0303;
     cursor: pointer;
 }
 
@@ -735,7 +735,7 @@ footer p {
 }
 
 .error {
-    color: #cc0000;
+    color: #af0303;
     font-size: 0.82rem;
     display: block;
     margin-top: 0.2rem;
@@ -753,7 +753,7 @@ footer p {
 
 .modulos > h2 {
     text-align: center;
-    color: #780000;
+    color: #af0303;
     font-size: 2rem;
     margin-bottom: 3%;
 }
@@ -786,7 +786,7 @@ footer p {
 
 .tab.activo {
     background-color: white;
-    color: #780000;
+    color: #af0303;
     border-bottom: 0.25rem solid #780000;
 }
 
@@ -799,7 +799,7 @@ footer p {
 }
 
 .tabContenido h3 {
-    color: #780000;
+    color: #af0303;
     font-size: 1.3rem;
     margin-bottom: 4%;
 }
@@ -838,7 +838,7 @@ footer p {
 .formGrupo select:focus,
 .formGrupo textarea:focus {
     outline: none;
-    border-color: #780000;
+    border-color: #af0303;
 }
 
 .formGrupo textarea {
@@ -857,7 +857,7 @@ footer p {
 
 .fixture > h2 {
     text-align: center;
-    color: #780000;
+    color: #af0303;
     font-size: 2rem;
     margin-bottom: 3%;
 }
@@ -889,7 +889,7 @@ footer p {
 }
 
 .tablaEstilos th {
-    background-color: #780000;
+    background-color: #af0303;
     color: white;
     padding: 0.8rem 1rem;
     text-align: left;
@@ -906,7 +906,7 @@ footer p {
 }
 
 .badgeLocal {
-    background-color: #780000;
+    background-color: #af0303;
     color: white;
     padding: 0.2rem 0.5rem;
     border-radius: 0.3rem;
@@ -923,14 +923,14 @@ footer p {
 
 .btnEliminar {
     background-color: transparent;
-    color: #cc0000;
+    color: #af0303;
     border: none;
     cursor: pointer;
     font-size: 1rem;
 }
 
 .btnEliminar:hover {
-    color: #880000;
+    color: #af0303;
 }
 
 
@@ -945,7 +945,7 @@ footer p {
 
 .reportes > h2 {
     text-align: center;
-    color: #780000;
+    color: #af0303;
     font-size: 2rem;
     margin-bottom: 3%;
 }
@@ -966,7 +966,7 @@ footer p {
 }
 
 .reporteBloque h3 {
-    color: #780000;
+    color: #af0303;
     font-size: 1.1rem;
     margin-bottom: 4%;
 }
@@ -986,7 +986,7 @@ footer p {
 
 .reporteFiltros input:focus {
     outline: none;
-    border-color: #780000;
+    border-color: #af0303;
 }
 
 .reporteAcciones {
@@ -1004,7 +1004,7 @@ footer p {
 
 .resumenItem {
     background-color: #f4f4f4;
-    border-left: 0.3rem solid #780000;
+    border-left: 0.3rem solid #af0303;
     padding: 0.8rem 1rem;
     border-radius: 0.3rem;
 }
@@ -1016,7 +1016,7 @@ footer p {
 
 .resumenItem strong {
     font-size: 1.4rem;
-    color: #780000;
+    color: #af0303;
     display: block;
 }
 
@@ -1032,7 +1032,7 @@ footer p {
 
 .contacto > h2 {
     text-align: center;
-    color: #780000;
+    color: #af0303;
     font-size: 2rem;
     margin-bottom: 4%;
 }
@@ -1047,7 +1047,7 @@ footer p {
 }
 
 .contactoInfo h3 {
-    color: #780000;
+    color: #af0303;
     font-size: 1.2rem;
     margin-bottom: 5%;
 }
@@ -1060,7 +1060,7 @@ footer p {
 }
 
 .contactoForm h3 {
-    color: #780000;
+    color: #af0303;
     font-size: 1.2rem;
     margin-bottom: 5%;
 }
@@ -1126,7 +1126,7 @@ footer p {
 }
 
 .modalCaja h3 {
-    color: #780000;
+    color: #af0303;
     font-size: 1.4rem;
     margin-bottom: 1rem;
 }
@@ -1216,7 +1216,7 @@ footer p {
 
     .tab.activo {
         border-bottom: none;
-        border-left: 0.25rem solid #780000;
+        border-left: 0.25rem solid #af0303;
     }
 
     .tabContenido {
